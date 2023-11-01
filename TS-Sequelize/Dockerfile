@@ -1,5 +1,12 @@
-FROM node:18.16.0
+FROM node:16.14-alpine
 
-WORKDIR /app-CRUD
+WORKDIR /app-crud
 
-COPY packge* .
+COPY package* .
+
+RUN npm install
+
+COPY . .
+
+ENTRYPOINT [ "npm", "run" ]
+CMD [ "dev" ]
